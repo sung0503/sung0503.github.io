@@ -120,6 +120,8 @@ No model is efficient without efficient deployment. Recent work focuses on optim
 
 These system-aware techniques demonstrate that runtime optimization is essential for realizing the full benefits of compute-efficient models.
 
+---
+
 ## 5. Open Challenges and Future Research Directions
 
 Despite progress, compute-optimal LLMs are still far from solved. Below are five key challenges that require deeper integration of theory, practice, and systems thinking.
@@ -133,6 +135,8 @@ Despite progress, compute-optimal LLMs are still far from solved. Below are five
 - **Hardware Portability**: Many optimizations rely on custom hardware. Making efficient models work well across GPUs, TPUs, and edge devices is still a major engineering hurdle.
 
 - **Sustainability-Aware Metrics**: FLOPs and latency don’t tell the full story. Energy use, carbon cost, and monetary efficiency should be part of standard benchmarks to guide sustainable progress.
+
+---
 
 ## 6. Conclusion: Towards Compute-Optimal LLMs
 
