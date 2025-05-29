@@ -1,7 +1,7 @@
 ---
 title: "Conference dates"
 date: 2025-05-07 12:00:00 +0900
-categories: [Paper, Conference]
+categories: [Paper]
 tags: [Postech, Conference]
 ---
 
