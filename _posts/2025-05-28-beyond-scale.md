@@ -116,7 +116,7 @@ Architecture plays a central role in reducing active computation through conditi
 
 - **Cllms**[^cllms] enforce consistency across partial sequences to enable iterative parallel decoding, achieving up to 3.4× inference speedup without modifying the model architecture.
 
-- **HAMburger**[^hamburger] replaces standard MoE routing with learned hashing for expert selection, improving hardware compatibility and reducing activation overhead.
+- **HAMburger**[^hamburger] replaces standard per-token decoding with a learned compositional fusion of tokens, enabling dynamic multi-token generation per forward step. This improves hardware efficiency by reducing KV cache growth and activation overhead.
 
 - **PARD**[^pard] transforms autoregressive draft models into efficient parallel predictors via masked-token training, significantly reducing per-token compute cost without altering model weights.
 
