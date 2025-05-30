@@ -28,9 +28,15 @@ Three deeply interrelated bottlenecks are driving this shift:
 
 - **Compute and memory constraints**: Autoregressive generation is inherently sequential, limiting token throughput even on the most advanced hardware. Moreover, the sheer scale of modern models necessitates distributed memory systems, introducing significant communication overhead and power consumption.
 
+![Training compute of notable models](/assets/img/posts/2025-05-28-beyond-scale/beyond_scale_compute.png) [^compute]
+
 - **Data scarcity**: By 2025, most high-quality English web text has already been mined. Scaling Chinchilla-style training to models with 500 B parameters or more would require trillions of high-quality tokens—an unattainable volume. As a result, strategies like deduplication, aggressive filtering, and synthetic data augmentation have become indispensable in maintaining data efficiency.
 
-- **Environmental impact**: The carbon footprint of training and deploying large-scale LLMs now rivals that of entire data centers[^carbon]. The energy cost is not only a technical bottleneck but an ethical and ecological concern.
+![Stock of data and year](/assets/img/posts/2025-05-28-beyond-scale/beyond_scale_data.png) [^position]
+
+- **Environmental impact**: In the near future, the power demands of AI data centers are expected to surge as LLM deployment expands, making carbon emissions and environmental sustainability pressing global issues.
+
+![Global Ai datacenter power demand](/assets/img/posts/2025-05-28-beyond-scale/beyond_scale_power.webp) [^power]
 
 These challenges are not isolated—they amplify each other. Compute limitations constrain throughput and model capacity; insufficient data reduces generalization; and both exacerbate energy consumption. Together, they underscore a fundamental shift: efficiency must be engineered into LLMs from the outset—not retrofitted as an afterthought.
 
@@ -56,7 +62,11 @@ Recent analyses converge around a revised exponent of approximately 0.5[^porian]
 
 $$N_{\text{opt}} \propto C^{0.5}$$
 
-more closely aligning with Chinchilla’s findings. Moreover, numerical format plays a significant role: a recent study[^kumar] demonstrates that the optimal scaling behavior differs depending on whether FP32, BF16, or FP8 is used—indicating that numerical precision must be formally integrated into scaling law formulations. This intersection between scaling behavior and numerical representation remains an open and important area of research.
+more closely aligning with Chinchilla’s findings.
+
+![Chinchilla vs Kaplan chart](/assets/img/posts/2025-05-28-beyond-scale/beyond_scale_scaling.png) [^pearce]
+
+Moreover, numerical format plays a significant role: a recent study[^kumar] demonstrates that the optimal scaling behavior differs depending on whether FP32, BF16, or FP8 is used—indicating that numerical precision must be formally integrated into scaling law formulations. This intersection between scaling behavior and numerical representation remains an open and important area of research.
 
 ### 3.2. Practical Efficiency Techniques
 
@@ -157,7 +167,6 @@ Efficiency, once treated as a trade-off, is now the design frontier. The next ge
 [^hoffman]: Hoffmann, Jordan, et al. "Training compute-optimal large language models." arXiv preprint arXiv:2203.15556 (2022).
 [^porian]: Porian, Tomer, et al. "Resolving discrepancies in compute-optimal scaling of language models." Advances in Neural Information Processing Systems 37 (2024): 100535-100570.
 [^gopher]: Rae, Jack W., et al. "Scaling language models: Methods, analysis & insights from training gopher." arXiv preprint arXiv:2112.11446 (2021).
-[^carbon]: Patterson, David, et al. "Carbon emissions and large neural network training." arXiv preprint arXiv:2104.10350 (2021).
 [^pearce]: Pearce, Song. "Reconciling Kaplan and Chinchilla Scaling Laws." Transactions on Machine Learning Research (2024).
 [^muennighoff]: Muennighoff, Niklas, et al. "Scaling data-constrained language models." Advances in Neural Information Processing Systems 36 (2023): 50358-50376.
 [^kumar]: Kumar, Tanishq, et al. "Scaling laws for precision." arXiv preprint arXiv:2411.04330 (2024), ICLR 2025 Oral.
@@ -173,3 +182,6 @@ Efficiency, once treated as a trade-off, is now the design frontier. The next ge
 [^hamburger]: Liu, Jingyu, et al. "HAMburger: Accelerating LLM Inference via Token Smashing." arXiv preprint arXiv:2505.20438 (2025).
 [^pard]: An, Zihao, et al. "PARD: Accelerating LLM Inference with Low-Cost PARallel Draft Model Adaptation." arXiv preprint arXiv:2504.18583 (2025).
 [^gllm]: Guo, Tianyu, et al. "gLLM: Global Balanced Pipeline Parallelism System for Distributed LLM Serving with Token Throttling." arXiv preprint arXiv:2504.14775 (2025).
+[^position]: Villalobos, Pablo, et al. "Position: Will we run out of data? Limits of LLM scaling based on human-generated data." Forty-first International Conference on Machine Learning. 2024.
+[^compute]: Jaime Sevilla, Epoch AI, Training Compute of Frontier AI Models Grows by 4-5x per Year, https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year
+[^power]: Dylan Patel, semianalysis, AI Datacenter Energy Dilemma – Race for AI Datacenter Space https://semianalysis.com/2024/03/13/ai-datacenter-energy-dilemma-race/
