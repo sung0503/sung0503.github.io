@@ -118,7 +118,7 @@ Architecture plays a central role in reducing active computation through conditi
 
 - **HAMburger**[^hamburger] replaces standard MoE routing with learned hashing for expert selection, improving hardware compatibility and reducing activation overhead.
 
-- **PARD**[^pard] routes tokens to lightweight subnetworks based on their position and context, lowering per-token compute in generation tasks.
+- **PARD**[^pard] transforms autoregressive draft models into efficient parallel predictors via masked-token training, significantly reducing per-token compute cost without altering model weights.
 
 These designs exemplify token-aware specialization and sparse activation, enabling models to allocate compute only where needed.
 
